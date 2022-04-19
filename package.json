@@ -1,0 +1,12 @@
+{
+  "name": "free-fe-account",
+  "version": "0.0.1",
+  "description": "The built-in account module for FreeEIS HE.",
+  "main": "index.js",
+  "author": "zhiquan",
+  "license": "UNLICENCED",
+  "private": false,
+  "dependencies": {
+    "js-cookie": "^3.0.1"
+  }
+}

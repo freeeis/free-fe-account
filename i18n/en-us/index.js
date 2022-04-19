@@ -1,0 +1,16 @@
+export default {
+  notifyLogin: 'Login succeed',
+  notifyLoginFailed: 'Failed to login!',
+  notifyRegister: 'Register succeed',
+  notifyRegisterFailed: 'Failed to register!',
+  notifyCodeSent: 'Code sent successfully',
+  notifyCodeSendFailed: 'Failed to send code!',
+  notifyCodeVerified: 'Passed code verification',
+  notifyCodeVerifyFailed: 'Failed code verification!',
+  notifyRecover: 'Password recovered',
+  notifyRecoverFailed: 'Failed to recover password!',
+  notifyPhoneIsNotExists: 'The phone number is not exists!',
+  notifyPhoneIsExists: 'The phone number is used already!',
+  placeholderUserName: 'Input user ID',
+  placeholderPassword: 'Input password',
+};

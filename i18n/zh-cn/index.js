@@ -1,0 +1,16 @@
+export default {
+  notifyLogin: '登录成功！',
+  notifyLoginFailed: '登录失败！',
+  notifyRegister: '注册成功！',
+  notifyRegisterFailed: '注册失败！',
+  notifyCodeSent: '验证码发送成功',
+  notifyCodeSendFailed: '验证码发送失败！',
+  notifyCodeVerified: '验证码通过验证',
+  notifyCodeVerifyFailed: '验证码验证失败！',
+  notifyRecover: '找回密码成功！',
+  notifyRecoverFailed: '找回密码失败！',
+  notifyPhoneIsNotExists: '手机号不存在！',
+  notifyPhoneIsExists: '手机号已被占用！',
+  placeholderUserName: '请输入登录账号',
+  placeholderPassword: '请输入登录密码',
+};
