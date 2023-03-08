@@ -111,7 +111,7 @@
 
 <script>
 import mixins from 'free-fe-mixins';
-import {defineComponent} from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'PermissionPage',
@@ -297,8 +297,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="sass" scoped>
-.admin-permission-mgmt-wrapper
-  background: $background
-</style>

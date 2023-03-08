@@ -3,7 +3,8 @@ import { requests } from "boot/axios";
 
 import enums from "./enum";
 import utils from "./utils";
-import store from "./store";
+import useAccountStore from './stores/module-account';
+
 import routers from "./router";
 
 const encrypt = (d, k) => utils.encoder.desEncode(d, k);
@@ -13,7 +14,7 @@ export default (app) => {
   k = k || "eis,is,s,2020";
 
   return {
-    store,
+    store: () => useAccountStore(),
     config: {
       loginOnly: false,
 

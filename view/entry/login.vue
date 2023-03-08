@@ -18,9 +18,9 @@
     </q-input>
 
     <div style="width: 100%;">
-      <q-btn flat class="float-left" to="/register">极速注册</q-btn>
+      <q-btn flat class="float-left" to="/register">{{ $t('极速注册') }}</q-btn>
 
-      <q-btn flat class="float-right" to="/recover">找回密码</q-btn>
+      <q-btn flat class="float-right" to="/recover">{{ $t('找回密码') }}</q-btn>
     </div>
 
     <q-btn
@@ -29,18 +29,18 @@
       @click="loginClicked"
       style="width: calc(100% - 40px); margin-top: 30px; margin-left: 20px; margin-right: 20px;"
     >
-      登录
+      {{ $t('登录') }}
       <template v-slot:loading>
-        <q-spinner-hourglass class="on-left" />登录中...
+        <q-spinner-hourglass class="on-left" />{{ $t('登录中') }}
       </template>
     </q-btn>
   </div>
 </template>
 
 <script>
-import {defineComponent} from 'vue';
+import { defineComponent } from 'vue';
 export default defineComponent({
-  name: 'Login',
+  name: 'LoginPage',
   props: {},
   data() {
     return {
@@ -56,14 +56,14 @@ export default defineComponent({
 
       this.loading = true;
 
-      this.ctx.modules.passport
+      this.ctx.modules.account
         .utils.login(this.phone, this.pwd)
         .then((d) => {
           this.loading = false;
           if (d && d.msg === 'OK') {
             // set info to store
             const data = (d && d.data) || {};
-            this.ctx.modules.passport.store().commit('passport/SET_USER', data);
+            this.ctx.modules.account.store().SET_USER(data);
 
             this.$router.replace('/');
           } else {
@@ -72,7 +72,7 @@ export default defineComponent({
           }
         })
         .catch((e) => {
-          debugger
+          console.log(e);
           this.$q.notify(this.$t('notifyLoginFailed'));
         });
     },

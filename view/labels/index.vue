@@ -82,7 +82,7 @@
 
 <script>
 import mixins from 'free-fe-mixins';
-import {defineComponent} from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'LabelPage',
@@ -214,8 +214,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="sass" scoped>
-.admin-labels-mgmt-wrapper
-  background: $background
-</style>

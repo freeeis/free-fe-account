@@ -136,7 +136,7 @@
 
 <script>
 import mixins from 'free-fe-mixins';
-import {defineComponent} from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'ResetPhone',
@@ -253,50 +253,50 @@ export default defineComponent({
   computed: {
     phone: {
       get() {
-        return this.Bus.$store.state.account.phone;
+        return this.Bus.account.phone;
       },
       set(v) {
-        this.Bus.$store.commit('account/SET_PHONE', v);
+        this.Bus.account.phone = v;
       },
     },
     code: {
       get() {
-        return this.Bus.$store.state.account.phoneCode;
+        return this.Bus.account.phoneCode;
       },
       set(v) {
-        this.Bus.$store.commit('account/SET_PHONE_CODE', v);
+        this.Bus.account.phoneCode = v;
       },
     },
     verified: {
       get() {
-        return this.Bus.$store.state.account.codeVerified;
+        return this.Bus.account.codeVerified;
       },
       set(v) {
-        this.Bus.$store.commit('account/SET_CODE_VERIFIED', v);
+        this.Bus.account.codeVerified = v;
       },
     },
     nphone: {
       get() {
-        return this.Bus.$store.state.account.newPhone;
+        return this.Bus.account.newPhone;
       },
       set(v) {
-        this.Bus.$store.commit('account/SET_NEW_PHONE', v);
+        this.Bus.account.newPhone = v;
       },
     },
     ncode: {
       get() {
-        return this.Bus.$store.state.account.newPhoneCode;
+        return this.Bus.account.newPhoneCode;
       },
       set(v) {
-        this.Bus.$store.commit('account/SET_NEW_PHONE_CODE', v);
+        this.Bus.account.newPhoneCode = v;
       },
     },
     nverified: {
       get() {
-        return this.Bus.$store.state.account.newCodeVerified;
+        return this.Bus.account.newCodeVerified;
       },
       set(v) {
-        this.Bus.$store.commit('account/SET_NEW_CODE_VERIFIED', v);
+        this.Bus.account.newCodeVerified = v;
       },
     },
   },

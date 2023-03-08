@@ -1,10 +1,8 @@
-// import Vue from 'vue';
-// import store from '../store';
 import {
   getSubAccounts, getSubAccount, getMyInfo, changePwd, changePhone,
 } from './api';
 
-// const bus = new Vue({ store: store() });
+import useAccountStore from '../../stores/module-account';
 
 export default {
   resetPwd: () => ({
@@ -33,7 +31,7 @@ export default {
       },
     ],
     changePwd,
-    // Bus: bus,
+    Bus: bus,
   }),
   resetPhone: () => ({
     StepsDefinition: [
@@ -80,7 +78,9 @@ export default {
       },
     ],
     changePhone,
-    // Bus: bus,
+    Bus: {
+      account: useAccountStore(),
+    },
   }),
   subList: (app) => (route) => ({
     GetData: (o) => getSubAccounts(o).then((d) => {
@@ -123,7 +123,9 @@ export default {
 
       return data;
     }),
-    // Bus: bus,
+    Bus: {
+      account: useAccountStore(),
+    },
   }),
   subDetails: (route) => ({
     GetData: () => {
@@ -246,7 +248,9 @@ export default {
         ],
       },
     ],
-    // Bus: bus,
+    Bus: {
+      account: useAccountStore(),
+    },
   }),
   info: () => () => ({
     GetData: () => getMyInfo().then((d) => {
@@ -268,6 +272,8 @@ export default {
 
       return data;
     }),
-    // Bus: bus,
+    Bus: {
+      account: useAccountStore(),
+    },
   }),
 };

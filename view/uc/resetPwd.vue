@@ -113,7 +113,7 @@
 
 <script>
 import mixins from 'free-fe-mixins';
-import {defineComponent} from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'ResetPassword',
@@ -194,26 +194,26 @@ export default defineComponent({
   computed: {
     phone: {
       get() {
-        return this.Bus.$store.state.account.phone;
+        return this.Bus.account.phone;
       },
       set(v) {
-        this.Bus.$store.commit('account/SET_PHONE', v);
+        this.Bus.account.phone = v;
       },
     },
     code: {
       get() {
-        return this.Bus.$store.state.account.phoneCode;
+        return this.Bus.account.phoneCode;
       },
       set(v) {
-        this.Bus.$store.commit('account/SET_PHONE_CODE', v);
+        this.Bus.account.phoneCode = v;
       },
     },
     verified: {
       get() {
-        return this.Bus.$store.state.account.codeVerified;
+        return this.Bus.account.codeVerified;
       },
       set(v) {
-        this.Bus.$store.commit('account/SET_CODE_VERIFIED', v);
+        this.Bus.account.codeVerified = v;
       },
     },
   },

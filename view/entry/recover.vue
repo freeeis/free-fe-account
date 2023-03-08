@@ -71,11 +71,11 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
+import { defineComponent } from 'vue';
 import mixins from 'free-fe-mixins';
 
 export default defineComponent({
-  name: 'Recover',
+  name: 'RecoverPage',
   mixins: [mixins.ObjectDataMixin],
   data() {
     return {

@@ -1,8 +1,13 @@
-// import Vue from 'vue';
-import { canI } from '@/utils/api';
-import { getAccount, getOneAccount, createAccount } from './api';
+/*
+ * @Description: 
+ * @Author: zhiquan <x.zhiquan@gmail.com>
+ * @Date: 2022-04-19 11:36:25
+ * @LastEditTime: 2023-03-07 09:35:32
+ * @LastEditors: zhiquan
+ */
 
-// const bus = new Vue();
+import { requests } from '@/boot/axios';
+import { getAccount, getOneAccount, createAccount } from './api';
 
 export default {
   list: (app) => (route) => ({
@@ -46,7 +51,7 @@ export default {
       ];
 
       // 添加申报按钮
-      canI('account/add').then((r) => {
+      requests.canI('account/add').then((r) => {
         if (r) {
           d.summary.push({
             text: '添加',
@@ -58,10 +63,10 @@ export default {
                   path: `${route.fullPath}/${account.id}`,
                 };
               } else {
-                bus.$MsgDialog(newAccount.msg);
+                // bus.$MsgDialog(newAccount.msg);
               }
             }).catch((ex) => {
-              bus.$MsgDialog(ex);
+              // bus.$MsgDialog(ex);
             }),
           });
         }

@@ -13,4 +13,8 @@ export default {
   notifyPhoneIsExists: '手机号已被占用！',
   placeholderUserName: '请输入登录账号',
   placeholderPassword: '请输入登录密码',
+  极速注册: '极速注册',
+  找回密码: '找回密码',
+  登录: '登录',
+  登录中: '登录中...',
 };

@@ -1,10 +1,7 @@
-// import Vue from 'vue';
 import {
   getPerm,
   createPerm, updatePerm, deletePerm,
 } from './api';
-
-// const bus = new Vue();
 
 export default {
   perm: () => ({

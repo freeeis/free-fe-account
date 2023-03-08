@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
+import { defineComponent } from 'vue';
 import mixins from 'free-fe-mixins';
 import { updateAccount, resetAccountPwd } from '../../router/account/api';
 

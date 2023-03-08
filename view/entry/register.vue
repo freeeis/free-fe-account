@@ -61,11 +61,11 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
+import { defineComponent } from 'vue';
 import mixins from 'free-fe-mixins';
 
 export default defineComponent({
-  name: 'Register',
+  name: 'RegisterPage',
   mixins: [mixins.ObjectDataMixin],
   data() {
     return {

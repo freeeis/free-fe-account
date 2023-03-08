@@ -1,8 +1,5 @@
 import { store } from 'quasar/wrappers'
-import { createStore } from 'vuex'
-
-import account from './module-account';
-import passport from './module-passport';
+import { createPinia } from 'pinia'
 
 /*
  * If not building with SSR mode, you can
@@ -14,16 +11,7 @@ import passport from './module-passport';
  */
 
 export default store(function (/* { ssrContext } */) {
-  const Store = createStore({
-    modules: {
-      account,
-      passport
-    },
-
-    // enable strict mode (adds overhead!)
-    // for dev mode and --debug builds only
-    strict: process.env.DEBUGGING
-  })
+  const Store = createPinia();
 
   return Store
 })

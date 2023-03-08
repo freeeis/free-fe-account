@@ -1,10 +1,7 @@
-// import Vue from 'vue';
 import {
   getOrgs,
   createOrg, updateOrg, deleteOrg,
 } from './api';
-
-// const bus = new Vue();
 
 const CHINA_NUMBERS = ' 一二三四五六七八九十';
 

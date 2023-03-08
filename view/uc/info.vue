@@ -128,7 +128,7 @@ import {
   submitMyInfo,
   editMyInfo,
 } from '../../router/uc/api';
-import {defineComponent} from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'UCInfo',

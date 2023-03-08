@@ -92,7 +92,7 @@
 
 <script>
 import mixins from 'free-fe-mixins';
-import {defineComponent} from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'OrganizationPage',
@@ -266,10 +266,8 @@ export default defineComponent({
 
 <style lang="sass" scoped>
 .admin-organization-mgmt-wrapper
-  background: $background
   .organization-header
     .virtual
       text-decoration: underline
       font-style: italic
-      color: $grey-8
 </style>

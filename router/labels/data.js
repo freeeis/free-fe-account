@@ -1,10 +1,7 @@
-// import Vue from 'vue';
 import {
   getLabels,
   createLabel, updateLabel, deleteLabel,
 } from './api';
-
-// const bus = new Vue();
 
 export default {
   label: () => ({

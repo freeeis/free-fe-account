@@ -13,4 +13,9 @@ export default {
   notifyPhoneIsExists: 'The phone number is used already!',
   placeholderUserName: 'Input user ID',
   placeholderPassword: 'Input password',
+
+  极速注册: 'Register',
+  找回密码: 'Recover',
+  登录: 'Login',
+  登录中: 'Wait...',
 };
