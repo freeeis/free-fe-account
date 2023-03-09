@@ -186,10 +186,7 @@ export default defineComponent({
 
           for (let i = 0; i < filters.length; i += 1) {
             const f = filters[i];
-            const filter = this.ctx.filters[f];
-            if (filter) {
-              val = filter(v || col.value);
-            }
+            val = this.$filter(f, v || col.value);
           }
         }
 
