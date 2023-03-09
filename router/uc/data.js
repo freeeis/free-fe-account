@@ -78,9 +78,7 @@ export default {
       },
     ],
     changePhone,
-    Bus: {
-      account: useAccountStore(),
-    },
+    Bus: useAccountStore(),
   }),
   subList: (app) => (route) => ({
     GetData: (o) => getSubAccounts(o).then((d) => {
@@ -123,9 +121,7 @@ export default {
 
       return data;
     }),
-    Bus: {
-      account: useAccountStore(),
-    },
+    Bus: useAccountStore(),
   }),
   subDetails: (route) => ({
     GetData: () => {
@@ -248,9 +244,7 @@ export default {
         ],
       },
     ],
-    Bus: {
-      account: useAccountStore(),
-    },
+    Bus: useAccountStore(),
   }),
   info: () => () => ({
     GetData: () => getMyInfo().then((d) => {
@@ -272,8 +266,6 @@ export default {
 
       return data;
     }),
-    Bus: {
-      account: useAccountStore(),
-    },
+    Bus: useAccountStore(),
   }),
 };

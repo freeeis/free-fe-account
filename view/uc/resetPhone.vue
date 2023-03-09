@@ -253,50 +253,50 @@ export default defineComponent({
   computed: {
     phone: {
       get() {
-        return this.Bus.account.phone;
+        return this.Bus.phone;
       },
       set(v) {
-        this.Bus.account.phone = v;
+        this.Bus.phone = v;
       },
     },
     code: {
       get() {
-        return this.Bus.account.phoneCode;
+        return this.Bus.phoneCode;
       },
       set(v) {
-        this.Bus.account.phoneCode = v;
+        this.Bus.phoneCode = v;
       },
     },
     verified: {
       get() {
-        return this.Bus.account.codeVerified;
+        return this.Bus.codeVerified;
       },
       set(v) {
-        this.Bus.account.codeVerified = v;
+        this.Bus.codeVerified = v;
       },
     },
     nphone: {
       get() {
-        return this.Bus.account.newPhone;
+        return this.Bus.newPhone;
       },
       set(v) {
-        this.Bus.account.newPhone = v;
+        this.Bus.newPhone = v;
       },
     },
     ncode: {
       get() {
-        return this.Bus.account.newPhoneCode;
+        return this.Bus.newPhoneCode;
       },
       set(v) {
-        this.Bus.account.newPhoneCode = v;
+        this.Bus.newPhoneCode = v;
       },
     },
     nverified: {
       get() {
-        return this.Bus.account.newCodeVerified;
+        return this.Bus.newCodeVerified;
       },
       set(v) {
-        this.Bus.account.newCodeVerified = v;
+        this.Bus.newCodeVerified = v;
       },
     },
   },

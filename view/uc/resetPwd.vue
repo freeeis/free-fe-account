@@ -194,26 +194,26 @@ export default defineComponent({
   computed: {
     phone: {
       get() {
-        return this.Bus.account.phone;
+        return this.Bus.phone;
       },
       set(v) {
-        this.Bus.account.phone = v;
+        this.Bus.phone = v;
       },
     },
     code: {
       get() {
-        return this.Bus.account.phoneCode;
+        return this.Bus.phoneCode;
       },
       set(v) {
-        this.Bus.account.phoneCode = v;
+        this.Bus.phoneCode = v;
       },
     },
     verified: {
       get() {
-        return this.Bus.account.codeVerified;
+        return this.Bus.codeVerified;
       },
       set(v) {
-        this.Bus.account.codeVerified = v;
+        this.Bus.codeVerified = v;
       },
     },
   },
