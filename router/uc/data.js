@@ -31,7 +31,7 @@ export default {
       },
     ],
     changePwd,
-    Bus: bus,
+    Bus: useAccountStore(),
   }),
   resetPhone: () => ({
     StepsDefinition: [
