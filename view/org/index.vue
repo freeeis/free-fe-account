@@ -96,7 +96,6 @@ import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/
 
 export default defineComponent({
   name: 'OrganizationPage',
-  mixins: [mixins.ObjectDataMixin],
   props: {
     ...objectDataProps,
     addOrg: { type: Function, default: () => { } },

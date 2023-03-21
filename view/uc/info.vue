@@ -94,7 +94,7 @@
             :values="data"
             :Field="field"
             @input="fieldChanged"
-            :ref="`input_field_validator_${field.Name || field.Label}`"
+            ref="fieldsToValid"
           ></free-field>
         </div>
       </q-step>
@@ -123,6 +123,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
+import { useFormValidator } from 'free-fe-core-modules/composible/useFormValidator';
 
 import {
   updateMyInfo,
@@ -142,6 +143,11 @@ export default defineComponent({
       data,
       refreshData,
     } = useObjectData(props, ctx);
+
+    const { validate } = useFormValidator('fieldsToValid');
+    ctx.expose({
+      validate,
+    })
 
     return {
       data, 
