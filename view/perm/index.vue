@@ -110,16 +110,27 @@
 </template>
 
 <script>
-import mixins from 'free-fe-mixins';
 import { defineComponent } from 'vue';
+import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 export default defineComponent({
   name: 'PermissionPage',
-  mixins: [mixins.ObjectDataMixin],
   props: {
+    ...objectDataProps,
     addPerm: { type: Function, default: () => { } },
     editPerm: { type: Function, default: () => { } },
     deletePerm: { type: Function, default: () => { } },
+  },
+  setup(props, ctx) {
+    const {
+      data,
+      refreshData,
+    } = useObjectData(props, ctx);
+
+    return {
+      data, 
+      refreshData,
+    };
   },
   data() {
     return {

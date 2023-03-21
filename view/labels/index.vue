@@ -81,16 +81,27 @@
 </template>
 
 <script>
-import mixins from 'free-fe-mixins';
 import { defineComponent } from 'vue';
+import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 export default defineComponent({
   name: 'LabelPage',
-  mixins: [mixins.ObjectDataMixin],
   props: {
+    ...objectDataProps,
     addLabel: { type: Function, default: () => { } },
     editLabel: { type: Function, default: () => { } },
     deleteLabel: { type: Function, default: () => { } },
+  },
+  setup(props, ctx) {
+    const {
+      data,
+      refreshData,
+    } = useObjectData(props, ctx);
+
+    return {
+      data, 
+      refreshData,
+    };
   },
   data() {
     return {

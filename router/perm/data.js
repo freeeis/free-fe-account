@@ -3,6 +3,9 @@ import {
   createPerm, updatePerm, deletePerm,
 } from './api';
 
+import { i18n } from '@/boot/i18n';
+const {global:{t}} = i18n;
+
 export default {
   perm: () => ({
     GetData: (p, l) => getPerm(p).then((d) => {
@@ -20,7 +23,7 @@ export default {
       data.docs.push({
         addingNew: true,
         id: `label_${currentLevel}_new`,
-        Title: `${currentLevel}级`,
+        Title: t(`${currentLevel}级`),
         level: currentLevel,
         Parent: p,
         Index: Infinity,

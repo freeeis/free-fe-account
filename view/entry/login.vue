@@ -65,7 +65,7 @@ export default defineComponent({
             const data = (d && d.data) || {};
             this.ctx.modules.account.store().SET_USER(data);
 
-            this.$router.replace('/');
+            this.$router.replace(this.$route.query.redirect || '/');
           } else {
             debugger
             this.$q.notify(this.$t('notifyLoginFailed'));

@@ -16,6 +16,9 @@ export default (app) => {
   return {
     store: () => useAccountStore(),
     config: {
+      dependencies: [
+        'core-modules'
+      ],
       loginOnly: false,
 
       desKey: "",

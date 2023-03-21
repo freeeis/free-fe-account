@@ -3,6 +3,7 @@
     <summary-head :values="data?.summary"></summary-head>
     <q-table
       flat
+      bordered
       :rows="data ? data.docs : []"
       :columns="columns"
       row-key="id"
@@ -60,9 +61,9 @@
       </template>
 
       <template v-slot:top-row>
-        <q-tr class="persistant-top-row full-width">
+        <!-- <q-tr class="persistant-top-row full-width">
           <q-td class="full-width" colspan="100%"></q-td>
-        </q-tr>
+        </q-tr> -->
         <q-tr v-if="showFilters" class="table-row filter-row">
           <q-td colspan="100%" class="table-cell filter-cell">
             <free-field
@@ -100,13 +101,24 @@
 
 <script>
 import { defineComponent } from 'vue';
-import mixins from 'free-fe-mixins';
+import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 export default defineComponent({
   name: 'AccountList',
-  mixins: [mixins.ObjectDataMixin],
   props: {
+    ...objectDataProps,
     pagination: { type: Boolean, default: true },
+  },
+  setup(props, ctx) {
+    const {
+      data,
+      refreshData,
+    } = useObjectData(props, ctx);
+
+    return {
+      data, 
+      refreshData,
+    };
   },
   data() {
     return {
@@ -211,8 +223,3 @@ export default defineComponent({
   beforeUnmount() {},
 });
 </script>
-
-<style lang="sass" scoped>
-.persistant-top-row
-  display: none
-</style>

@@ -135,17 +135,28 @@
 </template>
 
 <script>
-import mixins from 'free-fe-mixins';
 import { defineComponent } from 'vue';
+import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 export default defineComponent({
   name: 'ResetPhone',
-  mixins: [mixins.ObjectDataMixin],
   props: {
+    ...objectDataProps,
     buttonsVisible: { type: Function, default: () => true },
     StepsDefinition: { type: Array, default: () => [] },
     Fields: { type: Array, default: () => [] },
     changePhone: { type: Function, default: () => { } },
+  },
+  setup(props, ctx) {
+    const {
+      data,
+      refreshData,
+    } = useObjectData(props, ctx);
+
+    return {
+      data, 
+      refreshData,
+    };
   },
   data() {
     return {

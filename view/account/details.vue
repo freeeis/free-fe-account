@@ -70,14 +70,25 @@
 
 <script>
 import { defineComponent } from 'vue';
-import mixins from 'free-fe-mixins';
+import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 import { updateAccount, resetAccountPwd } from '../../router/account/api';
 
 export default defineComponent({
   name: 'AccountDetails',
-  mixins: [mixins.ObjectDataMixin],
   props: {
+    ...objectDataProps,
     buttonsVisible: { type: Function, default: () => true },
+  },
+  setup(props, ctx) {
+    const {
+      data,
+      refreshData,
+    } = useObjectData(props, ctx);
+
+    return {
+      data, 
+      refreshData,
+    };
   },
   data() {
     return {
@@ -261,15 +272,3 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="sass">
-.account-details-stepper
-  .q-stepper__header
-    display: none
-</style>
-
-<style lang="sass" scoped>
-.flow-action-buttons
-  position: relative
-  left: -24px
-  height: 48px !important
-</style>

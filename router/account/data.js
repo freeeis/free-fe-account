@@ -2,12 +2,15 @@
  * @Description: 
  * @Author: zhiquan <x.zhiquan@gmail.com>
  * @Date: 2022-04-19 11:36:25
- * @LastEditTime: 2023-03-07 09:35:32
+ * @LastEditTime: 2023-03-10 19:24:12
  * @LastEditors: zhiquan
  */
 
 import { requests } from '@/boot/axios';
 import { getAccount, getOneAccount, createAccount } from './api';
+
+import { i18n } from '@/boot/i18n';
+const {global:{t}} = i18n;
 
 export default {
   list: (app) => (route) => ({
@@ -25,25 +28,25 @@ export default {
 
       d.summary = [
         {
-          text: '账号数',
+          text: t('账号数'),
           number: d.total || '0',
           icon: app.config.countIcon || 'fas fa-calculator',
           relative: true,
         },
         {
-          text: '审核中',
+          text: t('审核中'),
           number: d.summary.auditing || '0',
           icon: app.config.ongoingIcon || 'fas fa-running',
           relative: true,
         },
         {
-          text: '审核通过',
+          text: t('审核通过'),
           number: d.summary.passed || '0',
           icon: app.config.successIcon || 'fas fa-check-square',
           relative: true,
         },
         {
-          text: '审核不通过',
+          text: t('审核不通过'),
           number: d.summary.failed || '0',
           icon: app.config.failIcon || 'fas fa-ban',
           relative: true,
@@ -54,7 +57,7 @@ export default {
       requests.canI('account/add').then((r) => {
         if (r) {
           d.summary.push({
-            text: '添加',
+            text: t('添加'),
             button: true,
             action: (item) => createAccount().then((newAccount) => {
               if (newAccount && newAccount.msg === 'OK') {

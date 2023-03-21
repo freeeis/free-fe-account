@@ -28,12 +28,12 @@
       </template>
 
       <template v-slot:top-row>
-        <q-tr class="persistant-top-row full-width">
+        <!-- <q-tr class="persistant-top-row full-width">
           <q-td
             class="full-width"
             colspan="100%"
           ></q-td>
-        </q-tr>
+        </q-tr> -->
         <q-tr
           v-if="showFilters"
           class="table-row filter-row"
@@ -125,17 +125,28 @@
 </template>
 
 <script>
-import mixins from 'free-fe-mixins';
 import { defineComponent } from 'vue';
+import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 export default defineComponent({
   name: 'SubAccountList',
-  mixins: [mixins.ObjectDataMixin],
   // components: {
   //   SummaryHead,
   // },
   props: {
+    ...objectDataProps,
     pagination: { type: Boolean, default: true },
+  },
+  setup(props, ctx) {
+    const {
+      data,
+      refreshData,
+    } = useObjectData(props, ctx);
+
+    return {
+      data, 
+      refreshData,
+    };
   },
   data() {
     return {

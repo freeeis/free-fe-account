@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import mixins from 'free-fe-mixins';
+import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 import {
   createSubAccount,
@@ -81,11 +81,22 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'SubAccountDetails',
-  mixins: [mixins.ObjectDataMixin],
   props: {
+    ...objectDataProps,
     buttonsVisible: { type: Function, default: () => true },
     StepsDefinition: { type: Array, default: () => [] },
     Fields: { type: Array, default: () => [] },
+  },
+  setup(props, ctx) {
+    const {
+      data,
+      refreshData,
+    } = useObjectData(props, ctx);
+
+    return {
+      data, 
+      refreshData,
+    };
   },
   data() {
     return {
@@ -201,16 +212,3 @@ export default defineComponent({
   beforeUnmount() { },
 });
 </script>
-
-<style lang="sass">
-.uc-sub-account-details-wrapper
-  .q-stepper__header
-    display: none
-</style>
-
-<style lang="sass" scoped>
-.flow-action-buttons
-  position: relative
-  left: -24px
-  height: 48px !important
-</style>

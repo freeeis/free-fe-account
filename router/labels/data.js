@@ -3,6 +3,9 @@ import {
   createLabel, updateLabel, deleteLabel,
 } from './api';
 
+import { i18n } from '@/boot/i18n';
+const {global:{t}} = i18n;
+
 export default {
   label: () => ({
     GetData: () => getLabels().then((d) => {
@@ -14,7 +17,7 @@ export default {
       data.docs.push({
         addingNew: true,
         id: 'addingNew',
-        Name: '添加',
+        Name: t('添加'),
         Index: Infinity,
       });
 

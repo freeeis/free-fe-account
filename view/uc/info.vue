@@ -5,7 +5,7 @@
       v-if="data && data.StepsDefinition && data.StepsDefinition.length"
       v-model="currentStep"
       animated
-      :header-nav="ctx.config.flow ? ctx.config.flow.headerNav : true"
+      :header-nav="ctx.config.flow ? ctx.config.flow?.headerNav : true"
       alternative-labels
     >
       <q-step
@@ -24,9 +24,9 @@
         :active-color="`${data.Status === '-1'
           ? 'red' : (data.Status === '0' ? 'grey' : 'green')}`"
         :error-icon="`img:images/admin/红${step.Index}@2x.png`"
-        :error-color="ctx.config.flow.flowStep.errorColor"
+        :error-color="ctx.config.flow?.flowStep.errorColor"
         :done-icon="`img:images/admin/绿${step.Index}@2x.png`"
-        :done-color="ctx.config.flow.flowStep.doneColor"
+        :done-color="ctx.config.flow?.flowStep.doneColor"
       >
         <div v-if="step.Actions && step.Actions.length" class="flow-action-buttons">
           <span v-for="(action, aIndex) in step.Actions || []" :key="aIndex">
@@ -55,8 +55,8 @@
         </div>
 
         <div
-          :class="`flow-step-submit-log max-height-${!!ctx.config.flow.submitLogMaxHeight}`"
-          :style="`max-height: ${ctx.config.flow.submitLogMaxHeight || ''};`"
+          :class="`flow-step-submit-log max-height-${!!ctx.config.flow?.submitLogMaxHeight}`"
+          :style="`max-height: ${ctx.config.flow?.submitLogMaxHeight || ''};`"
           v-if="auditLog && auditLog.length > 0"
         >
           <q-timeline class="timeline">
@@ -68,19 +68,19 @@
                 ? `${log.Title}${log.Description ? ' - ' + log.Description : ''}` : ''}`"
             >
               <div v-if="log && log.Date" class="date">
-                <span class="label">{{ctx.config.flow.submitDateLabel || '提交时间'}}：</span>
+                <span class="label">{{ctx.config.flow?.submitDateLabel || $t('提交时间')}}：</span>
                 {{$filter('dateAndTime',log.Date)}}
               </div>
               <div v-if="log && log.Name" class="name">
-                <span class="label">{{ctx.config.flow.submitterLabel || '提交人'}}：</span>
+                <span class="label">{{ctx.config.flow?.submitterLabel || $t('提交人')}}：</span>
                 {{log.Name}}
               </div>
               <div v-if="log && log.Org" class="org">
-                <span class="label">{{ctx.config.flow.submitOrgLabel || '提交单位'}}：</span>
+                <span class="label">{{ctx.config.flow?.submitOrgLabel || $t('提交单位')}}：</span>
                 {{log.Org}}
               </div>
               <div v-if="log && log.Reason" class="reason">
-                <span class="label">{{ctx.config.flow.submitReasonLabel || '提交意见'}}：</span>
+                <span class="label">{{ctx.config.flow?.submitReasonLabel || $t('提交意见')}}：</span>
                 {{log.Reason}}
               </div>
             </q-timeline-entry>
@@ -121,27 +121,39 @@
 </template>
 
 <script>
-import mixins from 'free-fe-mixins';
+import { defineComponent } from 'vue';
+import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 import {
   updateMyInfo,
   submitMyInfo,
   editMyInfo,
 } from '../../router/uc/api';
-import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'UCInfo',
   mixins: [mixins.ObjectDataMixin, mixins.InputFieldValidator],
   props: {
+    ...objectDataProps,
     Fields: { type: Array, default: () => [] },
+  },
+  setup(props, ctx) {
+    const {
+      data,
+      refreshData,
+    } = useObjectData(props, ctx);
+
+    return {
+      data, 
+      refreshData,
+    };
   },
   data() {
     return {
       buttonsVisible: (a) => {
         switch (a.Action) {
           case 'edit':
-            return typeof this.data.Status !== 'undefined';
+            return this.data.Status !== void 0;
           case 'save':
             if(this.currentStep && this.data && this.data.StepsDefinition){
               const theStep = this.data.StepsDefinition.find(sd => sd.Index === this.currentStep);
@@ -419,10 +431,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="sass" scoped>
-.flow-action-buttons
-  position: relative
-  // left: -24px
-  height: 48px !important
-</style>

@@ -91,16 +91,28 @@
 </template>
 
 <script>
-import mixins from 'free-fe-mixins';
 import { defineComponent } from 'vue';
+import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 export default defineComponent({
   name: 'OrganizationPage',
   mixins: [mixins.ObjectDataMixin],
   props: {
+    ...objectDataProps,
     addOrg: { type: Function, default: () => { } },
     editOrg: { type: Function, default: () => { } },
     deleteOrg: { type: Function, default: () => { } },
+  },
+  setup(props, ctx) {
+    const {
+      data,
+      refreshData,
+    } = useObjectData(props, ctx);
+
+    return {
+      data, 
+      refreshData,
+    };
   },
   data() {
     return {
@@ -263,11 +275,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="sass" scoped>
-.admin-organization-mgmt-wrapper
-  .organization-header
-    .virtual
-      text-decoration: underline
-      font-style: italic
-</style>

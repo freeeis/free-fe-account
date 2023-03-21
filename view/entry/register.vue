@@ -62,11 +62,24 @@
 
 <script>
 import { defineComponent } from 'vue';
-import mixins from 'free-fe-mixins';
+import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 export default defineComponent({
   name: 'RegisterPage',
-  mixins: [mixins.ObjectDataMixin],
+  props: {
+    ...objectDataProps,
+  },
+  setup(props, ctx) {
+    const {
+      data,
+      refreshData,
+    } = useObjectData(props, ctx);
+
+    return {
+      data, 
+      refreshData,
+    };
+  },
   data() {
     return {
       loading: false,
