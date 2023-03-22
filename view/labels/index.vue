@@ -10,15 +10,10 @@
     >
       <template v-slot:default-header="prop">
         <div
-          class="row items-center full-width"
-          style="border-bottom: solid 1px grey;"
+          class="label-header row items-center full-width"
         >
-          <div>
+          <div :class="{disabled: (!prop.node.Enabled && !prop.node.addingNew)}">
             {{ prop.node.Name }}
-            <e-icon
-              v-if="!prop.node.Enabled && !prop.node.addingNew"
-              name="mouse"
-            ></e-icon>
           </div>
           <q-space></q-space>
           <q-btn
@@ -28,13 +23,13 @@
             @click.stop="addNode(prop.node)"
           ></q-btn>
           <q-btn
-            v-if="!prop.node.addingNew && prop.node.Enabled"
+            v-if="!prop.node.addingNew"
             flat
             icon="edit"
             @click.stop="editNode(prop.node)"
           ></q-btn>
           <q-btn
-            v-if="!prop.node.addingNew && prop.node.Enabled"
+            v-if="!prop.node.addingNew"
             flat
             icon="delete"
             @click.stop="deleteNode(prop.node)"
@@ -146,7 +141,7 @@ export default defineComponent({
 
       this.$MsgDialog({
         type: '',
-        content: `确认要删除标签 '${n.Label}' 吗?`,
+        content: `确认要删除标签 '${n.Name}' 吗?`,
         canCancel: true,
         okText: this.$t('okButtonText'),
         cancelText: this.$t('cancelButtonText'),
@@ -176,6 +171,7 @@ export default defineComponent({
             this.data.docs = this.data.docs.sort(
               (a, b) => (a ? a.Index : 0) - (b ? b.Index : 0),
             );
+            this.$q.notify(this.$t('notifySaved'));
           } else {
             this.$q.notify((r && r.msg) || this.$t('notifyAddFailed'));
           }
@@ -198,6 +194,10 @@ export default defineComponent({
             this.data.docs = this.data.docs.sort(
               (a, b) => (a ? a.Index : 0) - (b ? b.Index : 0),
             );
+
+            this.$q.notify(this.$t('notifySaved'));
+          } else {
+            this.$q.notify((r && r.msg) || this.$t('notifySaveFailed'));
           }
 
           this.editingLabel = {};
@@ -225,3 +225,11 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="sass" scoped>
+.admin-labels-mgmt-wrapper
+  .label-header
+    .disabled
+      opacity: 0.6
+      text-decoration: line-through
+</style>

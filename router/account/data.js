@@ -1,8 +1,8 @@
 /*
- * @Description: 
+ * @Description:
  * @Author: zhiquan <x.zhiquan@gmail.com>
  * @Date: 2022-04-19 11:36:25
- * @LastEditTime: 2023-03-10 19:24:12
+ * @LastEditTime: 2023-03-21 18:31:38
  * @LastEditors: zhiquan
  */
 
@@ -26,7 +26,27 @@ export default {
         }
       }
 
-      d.summary = [
+      d.summary = d.summary || {};
+      d.summary = (typeof d.summary.auditing === 'undefined') ? [
+        {
+          text: '账号数',
+          number: d.total || '0',
+          icon: app.config.countIcon || 'fas fa-calculator',
+          relative: true,
+        },
+        {
+          text: '已启用',
+          number: d.summary.passed || '0',
+          icon: app.config.successIcon || 'fas fa-check-square',
+          relative: true,
+        },
+        {
+          text: '已禁用',
+          number: d.summary.failed || '0',
+          icon: app.config.failIcon || 'fas fa-ban',
+          relative: true,
+        },
+      ] : [
         {
           text: t('账号数'),
           number: d.total || '0',

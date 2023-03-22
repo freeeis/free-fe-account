@@ -39,13 +39,13 @@
             >
               <e-icon
                 class="step-icon"
-                :name="props.row.Status === '1' ? (ctx.config.successIcon || 'fas fa-check-square') :
+                :name="props.row.Status === '1' ? (props.row.Enabled ? (ctx.config.successIcon || 'fas fa-check-square') : ctx.config.failIcon) :
                     (props.row.Status === '-1' ? (ctx.config.failIcon || 'fas fa-ban') : (ctx.config.ongoingIcon || 'fas fa-running'))"
               ></e-icon>
               <div class="status-info">
                 <div class="step-title">账号信息</div>
-                <div :class="`step-status status-${props.row.Status}`">
-                  {{props.row.Status === '1' ? '审核通过'
+                <div :class="`step-status status-${props.row.Enabled ? props.row.Status : '-1'}`">
+                  {{props.row.Status === '1' ? (props.row.Enabled ? '已启用' : '已禁用')
                   : (props.row.Status === '-1' ? '审核失败':
                   (props.row.Status === "0" ? '审核中...': '完善中...'))}}
                 </div>

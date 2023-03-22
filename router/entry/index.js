@@ -1,7 +1,8 @@
 export default (app) => {
   let ret = [
     {
-      path: 'login',
+      path: '/login',
+      name: 'login',
       component: () => import('../../view/entry/login.vue'),
     }
   ];
@@ -9,11 +10,13 @@ export default (app) => {
   if (!app.config['account']?.loginOnly) {
     ret = ret.concat([
       {
-        path: 'register',
+        path: '/register',
+        name: 'register',
         component: () => import('../../view/entry/register.vue'),
       },
       {
-        path: 'recover',
+        path: '/recover',
+        name: 'recover',
         component: () => import('../../view/entry/recover.vue'),
       }
     ])

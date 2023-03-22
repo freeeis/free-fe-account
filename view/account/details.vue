@@ -20,7 +20,7 @@
         <div v-if="step.Actions && step.Actions.length" class="flow-action-buttons">
           <span v-for="(action, aIndex) in step.Actions || []" :key="aIndex">
             <q-btn
-              :class="`q-ma-md flow-action-btn-${action.Action || 'unknown'}`"
+              :class="`q-ma-sm flow-action-btn-${action.Action || 'unknown'}`"
               v-if="!Array.isArray(action) && buttonsVisible(action)"
               :label="action.Label"
               :icon="action.Icon"

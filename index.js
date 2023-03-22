@@ -212,15 +212,20 @@ export default (app) => {
           Type: "String",
         },
         {
+          Name: 'Description',
+          Label: '说明',
+          Type: 'Text',
+        },
+        {
           Name: "Enabled",
           Label: "激活",
           Type: "Check",
         },
-        // {
-        //   Name: 'Negative',
-        //   Label: '负角色',
-        //   Type: 'Check',
-        // },
+        {
+          Name: 'Negative',
+          Label: '负角色',
+          Type: 'Check',
+        },
         {
           Type: "Category",
           Label: "权限配置",
@@ -244,31 +249,34 @@ export default (app) => {
         p: ["第一个参数说明", "第二个参数说明"],
         f: (u, p) =>
           requests.postRequest("/login", {
+            ...opts,
             username: encrypt(u, k),
             password: encrypt(p, k),
           }),
       },
       encryptPwd: (d) => encrypt(d, k),
-      login: (u, p) =>
+      login: (u, p, opts) =>
         requests.postRequest("/login", {
           username: encrypt(u, k),
           password: encrypt(p, k),
         }),
       logout: () => requests.postRequest("/logout"),
-      register: (p, c, pwd) =>
+      register: (p, c, pwd, opts) =>
         requests.postRequest("/register", {
+          ...opts,
           PhoneNumber: encrypt(p, k),
           code: c,
           Password: pwd,
         }),
-      recover: (p, c, pwd) =>
+      recover: (p, c, pwd, opts) =>
         requests.postRequest("/recover", {
+          ...opts,
           PhoneNumber: encrypt(p, k),
           code: c,
           Password: pwd,
         }),
-      sendCode: (p) =>
-        requests.postRequest("/register/sms", { PhoneNumber: encrypt(p, k) }),
+      sendCode: (p, t, e) =>
+        requests.postRequest("/register/sms", { PhoneNumber: encrypt(p, k), smsTemp: t, exists: e }),
       verifyCode: (p, c) =>
         requests.postRequest("/register/verify", {
           PhoneNumber: encrypt(p, k),

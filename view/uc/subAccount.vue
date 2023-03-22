@@ -126,6 +126,7 @@
 
 <script>
 import { defineComponent } from 'vue';
+import { useRouter, useRoute } from 'vue-router'
 import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 export default defineComponent({
@@ -142,10 +143,13 @@ export default defineComponent({
       data,
       refreshData,
     } = useObjectData(props, ctx);
+    const router = useRouter();
 
     return {
-      data, 
+      data,
       refreshData,
+      router,
+      route: useRoute(),
     };
   },
   data() {
@@ -230,8 +234,8 @@ export default defineComponent({
       }
     },
     rowClicked(e, r) {
-      this.$router.push({
-        path: `${this.$route.fullPath}/${r.id}`,
+      this.router.push({
+        path: `${this.route.fullPath}/${r.id}`,
       });
     },
     paginationChanged(p) {

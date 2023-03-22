@@ -57,11 +57,17 @@
         <q-spinner-hourglass class="on-left" />注册中...
       </template>
     </q-btn>
+
+    <div class="float-right q-mt-md text-primary" style="font-size: 12px;">
+      已有账号?
+      <q-btn type="a" to="/login" flat size="sm">登录</q-btn>
+    </div>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
+import { useRouter } from 'vue-router'
 import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 export default defineComponent({
@@ -74,10 +80,12 @@ export default defineComponent({
       data,
       refreshData,
     } = useObjectData(props, ctx);
+    const router = useRouter();
 
     return {
-      data, 
+      data,
       refreshData,
+      router,
     };
   },
   data() {
@@ -126,7 +134,7 @@ export default defineComponent({
                     if (d && d.msg === 'OK') {
                       that.loading = false;
                       this.$q.notify(this.$t('notifyRegister'));
-                      this.$router.replace('/login');
+                      this.router.replace('/login');
                     } else {
                       that.loading = false;
                       // this.$q.notify(this.$t('notifyRegisterFailed'));

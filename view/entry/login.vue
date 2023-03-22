@@ -39,6 +39,8 @@
 
 <script>
 import { defineComponent } from 'vue';
+import { useRouter, useRoute } from 'vue-router'
+
 export default defineComponent({
   name: 'LoginPage',
   props: {},
@@ -49,6 +51,14 @@ export default defineComponent({
       pwd: '',
       isPwd: true,
     };
+  },
+  setup() {
+    const router = useRouter();
+
+    return {
+      router,
+      route: useRoute(),
+    }
   },
   methods: {
     loginClicked() {
@@ -65,9 +75,8 @@ export default defineComponent({
             const data = (d && d.data) || {};
             this.ctx.modules.account.store().SET_USER(data);
 
-            this.$router.replace(this.$route.query.redirect || '/');
+            this.router.replace(this.route.query.redirect || '/');
           } else {
-            debugger
             this.$q.notify(this.$t('notifyLoginFailed'));
           }
         })

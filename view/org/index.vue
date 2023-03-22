@@ -13,7 +13,6 @@
       <template v-slot:default-header="prop">
         <div
           class="organization-header row items-center full-width"
-          style="border-bottom: solid 1px grey;"
         >
           <div :class="prop.node.IsVirtual ? 'virtual' : ''">
             {{ prop.node.Name }}
@@ -109,7 +108,7 @@ export default defineComponent({
     } = useObjectData(props, ctx);
 
     return {
-      data, 
+      data,
       refreshData,
     };
   },

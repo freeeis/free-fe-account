@@ -72,6 +72,7 @@
 
 <script>
 import { defineComponent } from 'vue';
+import { useRouter, useRoute } from 'vue-router'
 import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 
 export default defineComponent({
@@ -84,10 +85,13 @@ export default defineComponent({
       data,
       refreshData,
     } = useObjectData(props, ctx);
+    const router = useRouter();
 
     return {
-      data, 
+      data,
       refreshData,
+      router,
+      route: useRoute(),
     };
   },
   data() {
@@ -143,7 +147,7 @@ export default defineComponent({
                     if (d && d.msg === 'OK') {
                       that.loading = false;
                       this.$q.notify(this.$t('notifyRecover'));
-                      this.$router.replace('/login');
+                      this.router.replace(this.route.query.redirect ? `/login?${this.route.query.redirect}` : '/login');
                     } else {
                       that.loading = false;
                       // this.$q.notify(this.$t('notifyRecoverFailed'));
