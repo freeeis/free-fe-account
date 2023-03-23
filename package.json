@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "zhiquan",
   "license": "UNLICENCED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freeeis/free-fe-account.git"
+  },
   "private": false,
   "dependencies": {
     "js-cookie": "^3.0.1"
