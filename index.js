@@ -16,9 +16,9 @@ export default (app) => {
   return {
     store: () => useAccountStore(),
     config: {
-      dependencies: [
-        'core-modules'
-      ],
+      dependencies: ['core-modules'],
+      backendDependencies: ["account"],
+
       loginOnly: false,
 
       desKey: "",
@@ -237,9 +237,6 @@ export default (app) => {
           ServiceList: "_service_list",
         },
       ],
-
-      dependencies: ["core-modules"],
-      backendDependencies: ["account"],
     },
     utils: {
       func1: {
