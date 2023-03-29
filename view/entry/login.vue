@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute-center" style="width: 300px;">
+  <div class="absolute-center login-content" style="width: 300px;">
     <mourning v-if="!!ctx.modules.mourning"></mourning>
     <q-input v-model="phone" filled hide-bottom-space
       :placeholder="$t('placeholderUserName')"
@@ -17,7 +17,7 @@
       </template>
     </q-input>
 
-    <div style="width: 100%;">
+    <div style="width: 100%;" v-if="!ctx.config['account'].loginOnly">
       <q-btn flat class="float-left" to="/register">{{ $t('极速注册') }}</q-btn>
 
       <q-btn flat class="float-right" to="/recover">{{ $t('找回密码') }}</q-btn>
@@ -80,8 +80,7 @@ export default defineComponent({
             this.$q.notify(this.$t('notifyLoginFailed'));
           }
         })
-        .catch((e) => {
-          console.log(e);
+        .catch(() => {
           this.$q.notify(this.$t('notifyLoginFailed'));
         });
     },

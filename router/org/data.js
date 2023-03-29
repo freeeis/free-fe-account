@@ -39,6 +39,5 @@ export default {
     addOrg: (d) => createOrg(d),
     editOrg: (d) => updateOrg(d),
     deleteOrg: (d) => deleteOrg(d),
-    // Bus: bus,
   }),
 };

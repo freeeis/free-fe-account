@@ -57,15 +57,15 @@
       @click="permformActions({Action: 'recover'})"
       style="width: calc(100% - 40px); margin-top: 30px; margin-left: 20px; margin-right: 20px;"
     >
-      找回
+      {{$t('找回')}}
       <template v-slot:loading>
-        <q-spinner-hourglass class="on-left" />找回中...
+        <q-spinner-hourglass class="on-left" />{{$t('找回中...')}}
       </template>
     </q-btn>
 
     <div class="float-right q-mt-md text-primary" style="font-size: 12px;">
-      已有账号?
-      <q-btn type="a" to="/login" flat size="sm">登录</q-btn>
+      {{$t('已有账号')}}?
+      <q-btn type="a" to="/login" flat size="sm">{{$t('登录')}}</q-btn>
     </div>
   </div>
 </template>
@@ -169,13 +169,6 @@ export default defineComponent({
         },
       },
     };
-  },
-  beforeCreate() {
-    this.getRequest('/portal/contactinfo').then((d) => {
-      if (d && d.msg === 'OK' && d.data) {
-        this.contactInfo = d.data;
-      }
-    });
   },
   methods: {
     phoneChanged(p) {

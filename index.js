@@ -254,6 +254,7 @@ export default (app) => {
       encryptPwd: (d) => encrypt(d, k),
       login: (u, p, opts) =>
         requests.postRequest("/login", {
+          ...opts,
           username: encrypt(u, k),
           password: encrypt(p, k),
         }),
