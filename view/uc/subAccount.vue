@@ -99,7 +99,7 @@
 
       <template v-slot:no-data>
         <div class="full-width full-height row flex-center q-gutter-sm">
-          <span>暂 无 数 据</span>
+          <span>{{$t('暂无数据')}}</span>
         </div>
       </template>
 

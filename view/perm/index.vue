@@ -51,6 +51,7 @@
             :key="fIndex"
             :values="editingPerm"
             :Field="field"
+            ref="fieldsToValidate"
           ></free-field>
 
           <div class="action-btns full-width row justify-center q-gutter-md">
@@ -112,6 +113,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
+import { useFormValidator} from 'free-fe-core-modules/composible/useFormValidator';
 
 export default defineComponent({
   name: 'PermissionPage',
@@ -127,9 +129,12 @@ export default defineComponent({
       refreshData,
     } = useObjectData(props, ctx);
 
+    const { validate } = useFormValidator('fieldsToValidate');
+
     return {
       data, 
       refreshData,
+      validate,
     };
   },
   data() {
@@ -213,6 +218,9 @@ export default defineComponent({
     },
     onSaveClick() {
       if (Object.keys(this.editingPerm) <= 0) return;
+
+      if (!this.validate()) return;
+
       // if is adding new
       if (this.selectedPermNode.addingNew) {
         this.editingPerm = {
