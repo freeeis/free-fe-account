@@ -12,7 +12,7 @@
         :key="index"
         :name="step.Index"
         :title="step.Name"
-        :caption="$filter('stepCaption',step, data.Enabled)"
+        :caption="$filter('stepCaption',step, data.Status)"
         :icon="step.Icon"
         :prefix="step.Index"
         :disable="step.Index > data.CurrentStep"
@@ -104,6 +104,11 @@ export default defineComponent({
 
           that.changedFields.forEach((f) => {
             changedData[f] = that.data[f];
+            
+            if (f === 'Password') {
+              // encrypt password
+              changedData[f] = that.ctx.modules.account.utils.encryptPwd(that.data[f]);
+            }
           });
 
           return updateAccount({ id: that.data.id, ...changedData }).then((r) => {

@@ -105,7 +105,7 @@ export default (app) => {
               Index: 0,
               Name: "Org",
               Options: {
-                SearchUrl: "account/org/search",
+                SearchUrl: "account/mgmt/search",
                 SearchField: "id",
                 SearchDisplayField: "Name",
                 SearchColumns: [

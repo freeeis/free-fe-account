@@ -11,7 +11,7 @@ export function getOneAccount(id) {
 }
 
 export function createAccount() {
-  return requests.postRequest('account/mgmt', { CreatedDate: new Date() });
+  return requests.postRequest('account/mgmt', { CreatedDate: (new Date()).toISOString() });
 }
 
 export function updateAccount(o) {
