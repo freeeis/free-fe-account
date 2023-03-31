@@ -254,6 +254,8 @@ export default defineComponent({
                 (a, b) => (a ? a.Index : 0) - (b ? b.Index : 0),
               );
             }
+
+            this.$q.notify(this.$t('notifySaved'));
           } else {
             this.$q.notify((r && r.msg) || this.$t('notifyAddFailed'));
           }
@@ -289,6 +291,8 @@ export default defineComponent({
                 (a, b) => (a ? a.Index : 0) - (b ? b.Index : 0),
               );
             }
+
+            this.$q.notify(this.$t('notifySaved'));
           }
 
           this.editingPerm = {};

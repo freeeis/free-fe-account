@@ -141,8 +141,8 @@ export default defineComponent({
 
           return this.$MsgDialog({
             type: '',
-            content: this.$t('请确认重置密码！'),
-            warning: this.$t('重置后此账号只能使用新密码登录！'),
+            content: this.$t('请确认重置密码'),
+            warning: this.$t('重置后此账号只能使用新密码登录'),
             canCancel: true,
             size: { w: 460 },
             okText: this.$t('okButtonText'),

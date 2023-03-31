@@ -23,4 +23,15 @@ export default {
   组织机构: 'Orgniation',
   权限定义: 'Permission',
   权限标签: 'Permission Role',
+
+  TreeLevel: 'Level {level}',
+
+  账号管理: 'Account Management',
+  账号数: 'Account Count',
+  权限管理: 'Permission Management',
+  权限标签管理: 'Permission Role Management',
+  权限配置: 'Permission Configuration',
+  权限: 'Permission',
+  请确认重置密码: 'Please confirm to reset password!',
+  重置后此账号只能使用新密码登录: 'After reset, the account can only use the new password to login!',
 };
