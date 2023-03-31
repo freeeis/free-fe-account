@@ -94,7 +94,7 @@ export default defineComponent({
     } = useObjectData(props, ctx);
 
     return {
-      data, 
+      data,
       refreshData,
     };
   },
@@ -141,7 +141,7 @@ export default defineComponent({
 
       this.$MsgDialog({
         type: '',
-        content: `确认要删除标签 '${n.Name}' 吗?`,
+        content: this.$t('删除确认', { type: this.$t('权限标签'), name: n.Name }),
         canCancel: true,
         okText: this.$t('okButtonText'),
         cancelText: this.$t('cancelButtonText'),

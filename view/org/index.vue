@@ -166,7 +166,7 @@ export default defineComponent({
 
       this.$MsgDialog({
         type: '',
-        content: `确认要删除组织机构 '${n.Name}' 吗?`,
+        content: this.$t('删除确认', { type: this.$t('组织机构'), name: n.Name }),
         canCancel: true,
         okText: this.$t('okButtonText'),
         cancelText: this.$t('cancelButtonText'),

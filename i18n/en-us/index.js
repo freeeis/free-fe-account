@@ -18,4 +18,9 @@ export default {
   找回密码: 'Recover',
   登录: 'Login',
   登录中: 'Wait...',
+
+  删除确认: "Do you want to delete {type} '{name}'？",
+  组织机构: 'Orgniation',
+  权限定义: 'Permission',
+  权限标签: 'Permission Role',
 };

@@ -114,9 +114,9 @@
 
           <q-input
             v-model="pwdConfirm"
-            placeholder="请确认登录密码"
+            :placeholder="$t('请确认登录密码')"
             ref="pwdConfirm"
-            :rules="[val => (!!val && val === pwd) || '请确认密码']"
+            :rules="[val => (!!val && val === pwd) || $t('请确认密码')]"
             filled
             :type="isCPwd ? 'password' : 'text'"
           >
@@ -154,7 +154,7 @@ export default defineComponent({
     } = useObjectData(props, ctx);
 
     return {
-      data, 
+      data,
       refreshData,
     };
   },

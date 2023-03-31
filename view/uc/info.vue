@@ -214,7 +214,7 @@ export default defineComponent({
             if (ret) {
               const submitFunc = () => {
                 // submit
-                let auditString = '提交审核';
+                let auditString = this.$t('提交审核');
                 let auditTips = '';
                 const auditWarning = '';
                 const cStep = this.data.StepsDefinition.find(
@@ -234,11 +234,11 @@ export default defineComponent({
                     auditString = cStep.Description;
                   }
                 }
-                auditTips = '确认后将自动跳转到下一步';
+                auditTips = this.$t('确认后将自动跳转到下一步');
 
                 return this.$MsgDialog({
                   type: '',
-                  content: `请确认${auditString}`,
+                  content: `${this.$t('请确认')}${auditString}`,
                   warning: auditWarning,
                   tips: auditTips,
                   canCancel: true,
@@ -290,9 +290,9 @@ export default defineComponent({
         },
         edit: (a, that) => {
           // recall
-          let auditString = '撤回修改';
+          let auditString = this.$t('撤回修改');
           const auditTips = '';
-          const auditWarning = '确认后您将失去业务申请权限，需要重新提交审核。';
+          const auditWarning = this.$t('确认后您将失去多数权限，需要重新提交审核。');
           const cStep = this.data.StepsDefinition.find(
             (sd) => sd.Index === this.currentStep
           );
@@ -313,7 +313,7 @@ export default defineComponent({
 
           return this.$MsgDialog({
             type: '',
-            content: `请确认${auditString}`,
+            content: `${this.$t('请确认')}${auditString}`,
             warning: auditWarning,
             tips: auditTips,
             canCancel: true,

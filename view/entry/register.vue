@@ -3,20 +3,20 @@
     <mourning v-if="!!ctx.modules.mourning"></mourning>
     <q-input
       v-model="phone"
-      placeholder="请输入手机号"
+      :placeholder="$t('请输入手机号')"
       ref="phone"
-      :rules="[val => !!val || '请输入手机号',phoneChanged]"
+      :rules="[val => !!val || $t('请输入手机号'),phoneChanged]"
     >
       <template v-slot:append>
-        <q-btn class="float-right" @click="permformActions({Action: 'sendCode'})">获取验证码</q-btn>
+        <q-btn class="float-right" @click="permformActions({Action: 'sendCode'})">{{$t('获取验证码')}}</q-btn>
       </template>
     </q-input>
-    <q-input v-model="code" placeholder="请输入验证码" ref="code" :rules="[val => !!val || '请输入验证码']"></q-input>
+    <q-input v-model="code" :placeholder="$t('请输入验证码')" ref="code" :rules="[val => !!val || $t('请输入验证码')]"></q-input>
     <q-input
       v-model="pwd"
-      placeholder="请设置登录密码"
+      :placeholder="$t('请设置登录密码')"
       ref="pwd"
-      :rules="[val => !!val || '请输入密码']"
+      :rules="[val => !!val || $t('请输入密码')]"
       filled
       :type="isPwd ? 'password' : 'text'"
     >
@@ -31,9 +31,9 @@
 
     <q-input
       v-model="pwdConfirm"
-      placeholder="请确认登录密码"
+      :placeholder="$t('请确认登录密码')"
       ref="pwdConfirm"
-      :rules="[val => (!!val && val === pwd) || '请确认密码']"
+      :rules="[val => (!!val && val === pwd) || $t('请确认密码')]"
       filled
       :type="isCPwd ? 'password' : 'text'"
     >
@@ -52,15 +52,15 @@
       @click="permformActions({Action: 'register'})"
       style="width: calc(100% - 40px); margin-top: 30px; margin-left: 20px; margin-right: 20px;"
     >
-      注册
+      {{$t('注册')}}
       <template v-slot:loading>
-        <q-spinner-hourglass class="on-left" />注册中...
+        <q-spinner-hourglass class="on-left" />{{$t('注册中')}}...
       </template>
     </q-btn>
 
     <div class="float-right q-mt-md text-primary" style="font-size: 12px;">
-      已有账号?
-      <q-btn type="a" to="/login" flat size="sm">登录</q-btn>
+      {{$t('已有账号')}}?
+      <q-btn type="a" to="/login" flat size="sm">{{$t('登录')}}</q-btn>
     </div>
   </div>
 </template>

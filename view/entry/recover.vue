@@ -13,15 +13,15 @@
     </q-input>
     <q-input
       v-model="info.code"
-      placeholder="请输入验证码"
+      :placeholder="$t('请输入验证码')"
       ref="code"
-      :rules="[val => !!val || '请输入验证码']"
+      :rules="[val => !!val || $t('请输入验证码')]"
     ></q-input>
     <q-input
       v-model="info.pwd"
-      placeholder="请设置新密码"
+      :placeholder="$t('请设置新密码')"
       ref="pwd"
-      :rules="[val => !!val || '请输入密码']"
+      :rules="[val => !!val || $t('请输入密码')]"
       filled
       :type="isPwd ? 'password' : 'text'"
     >
@@ -36,9 +36,9 @@
 
     <q-input
       v-model="info.pwdConfirm"
-      placeholder="请确认新密码"
+      :placeholder="$t('请确认新密码')"
       ref="pwdConfirm"
-      :rules="[val => (!!val && val === info.pwd) || '请确认密码']"
+      :rules="[val => (!!val && val === info.pwd) || $t('请确认密码')]"
       filled
       :type="isCPwd ? 'password' : 'text'"
     >

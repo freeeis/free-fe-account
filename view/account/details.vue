@@ -86,7 +86,7 @@ export default defineComponent({
     } = useObjectData(props, ctx);
 
     return {
-      data, 
+      data,
       refreshData,
     };
   },
@@ -104,7 +104,7 @@ export default defineComponent({
 
           that.changedFields.forEach((f) => {
             changedData[f] = that.data[f];
-            
+
             if (f === 'Password') {
               // encrypt password
               changedData[f] = that.ctx.modules.account.utils.encryptPwd(that.data[f]);
@@ -141,8 +141,8 @@ export default defineComponent({
 
           return this.$MsgDialog({
             type: '',
-            content: '请确认重置密码！',
-            warning: '重置后此账号只能使用新密码登录！',
+            content: this.$t('请确认重置密码！'),
+            warning: this.$t('重置后此账号只能使用新密码登录！'),
             canCancel: true,
             size: { w: 460 },
             okText: this.$t('okButtonText'),
@@ -154,8 +154,8 @@ export default defineComponent({
                   if (r.data && r.data.newPwd) {
                     this.$MsgDialog({
                       type: '',
-                      content: '密码重置成功',
-                      warning: '新密码只显示一次，请记录！',
+                      content: this.$t('密码重置成功'),
+                      warning: this.$t('新密码只显示一次，请记录！'),
                       fields: [
                         {
                           ReadOnly: true,
@@ -196,14 +196,14 @@ export default defineComponent({
             Fields: sf.Fields.concat(
               {
                 Type: 'Category',
-                Label: '权限配置',
+                Label: this.$t('权限配置'),
                 Info: {
                   ShowWhen: 'data.Permission !== "*"',
                 },
               },
               {
                 Name: 'Permission',
-                Label: '权限',
+                Label: this.$t('权限'),
                 Type: 'Permission',
                 ServiceList: '_service_list',
                 Info: {

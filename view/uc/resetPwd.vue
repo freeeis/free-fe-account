@@ -53,9 +53,9 @@
         <div v-if="currentStep === 1">
           <q-input
             v-model="phone"
-            placeholder="请输入手机号"
+            :placeholder="$t('请输入手机号')"
             ref="phone"
-            :rules="[val => !!val || '请输入手机号']"
+            :rules="[val => !!val || $t('请输入手机号')]"
           >
             <template v-slot:append>
               <q-btn
@@ -66,17 +66,17 @@
           </q-input>
           <q-input
             v-model="code"
-            placeholder="请输入验证码"
+            :placeholder="$t('请输入验证码')"
             ref="code"
-            :rules="[val => !!val || '请输入验证码']"
+            :rules="[val => !!val || $t('请输入验证码')]"
           ></q-input>
         </div>
         <div v-if="currentStep === 2">
           <q-input
             v-model="pwd"
-            placeholder="请设置登录密码"
+            :placeholder="$t('请设置登录密码')"
             ref="pwd"
-            :rules="[val => !!val || '请输入密码']"
+            :rules="[val => !!val || $t('请输入密码')]"
             filled
             :type="isPwd ? 'password' : 'text'"
           >
@@ -91,9 +91,9 @@
 
           <q-input
             v-model="pwdConfirm"
-            placeholder="请确认登录密码"
+            :placeholder="$t('请确认登录密码')"
             ref="pwdConfirm"
-            :rules="[val => (!!val && val === pwd) || '请确认密码']"
+            :rules="[val => (!!val && val === pwd) || $t('请确认密码')]"
             filled
             :type="isCPwd ? 'password' : 'text'"
           >
@@ -131,7 +131,7 @@ export default defineComponent({
     } = useObjectData(props, ctx);
 
     return {
-      data, 
+      data,
       refreshData,
     };
   },
