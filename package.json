@@ -1,6 +1,6 @@
 {
   "name": "free-fe-account",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "The built-in account module for FreeEIS HE.",
   "main": "index.js",
   "author": "zhiquan",
@@ -11,6 +11,6 @@
   },
   "private": false,
   "dependencies": {
-    "js-cookie": "^3.0.1"
+    "js-cookie": "^3.0.5"
   }
 }
