@@ -159,7 +159,7 @@ export default defineComponent({
       buttonsVisible: (a) => {
         switch (a.Action) {
           case 'edit':
-            return this.data.Status !== void 0;
+            return this.data.Status !== void 0 && this.data.ar;
           case 'save':
             if(this.currentStep && this.data && this.data.StepsDefinition){
               const theStep = this.data.StepsDefinition.find(sd => sd.Index === this.currentStep);
@@ -171,7 +171,7 @@ export default defineComponent({
 
             return false;
           case 'submit':
-            return typeof this.data.Status === 'undefined';
+            return typeof this.data.Status === 'undefined' && this.data.ar;
           default:
             return true;
         }
