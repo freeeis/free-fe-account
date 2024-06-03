@@ -4,7 +4,7 @@
     <q-table
       flat
       bordered
-      :rows="data ? data.docs : []"
+      :rows="data?.docs || []"
       :columns="columns"
       row-key="id"
       :hide-bottom="!pagination"
@@ -87,7 +87,7 @@
           <q-pagination
             v-model="data.page"
             :max="data.pages"
-            @input="paginationChanged"
+            @update:modelValue="paginationChanged"
             boundary-links
             boundary-numbers
             direction-links

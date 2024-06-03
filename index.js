@@ -184,6 +184,11 @@ export default (app) => {
           Type: "Check",
         },
         {
+          Name: 'Profile.Avatar',
+          Label: '头像',
+          Type: 'Image',
+        },
+        {
           Type: "Category",
           Label: "权限配置",
         },

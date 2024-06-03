@@ -6,7 +6,7 @@
     ></summary-head>
     <q-table
       flat
-      :rows="data ? data.docs : []"
+      :rows="data?.docs || []"
       :columns="columns"
       row-key="id"
       :pagination="tablePagination"
@@ -112,7 +112,7 @@
           <q-pagination
             v-model="data.page"
             :max="data.pages"
-            @input="paginationChanged"
+            @update:modelValue="paginationChanged"
             boundary-links
             boundary-numbers
             direction-links

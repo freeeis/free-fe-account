@@ -3,7 +3,7 @@
     <mourning v-if="!!ctx.modules.mourning"></mourning>
     <q-input v-model="phone" filled hide-bottom-space
       :placeholder="$t('placeholderUserName')"
-      type="tel" style="margin-bottom: 5px;" />
+      style="margin-bottom: 5px;" />
     <q-input v-model="pwd" hide-bottom-space
       :placeholder="$t('placeholderPassword')"
       @keyup.enter="loginClicked"
