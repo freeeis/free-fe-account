@@ -133,7 +133,6 @@ import {
 
 export default defineComponent({
   name: 'UCInfo',
-  mixins: [mixins.ObjectDataMixin, mixins.InputFieldValidator],
   props: {
     ...objectDataProps,
     Fields: { type: Array, default: () => [] },
