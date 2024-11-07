@@ -100,7 +100,7 @@ export default defineComponent({
       Actions: {
         sendCode: (a, that) => {
           that
-            .getModule('passport')
+            .getModule('account')
             .utils.sendCode(that.phone)
             .then((d) => {
               if (d && d.msg === 'OK') {
