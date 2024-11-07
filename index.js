@@ -280,10 +280,11 @@ export default (app) => {
         }),
       sendCode: (p, t, e) =>
         requests.postRequest("/register/sms", { PhoneNumber: encrypt(p, k), smsTemp: t, exists: e }),
-      verifyCode: (p, c) =>
+      verifyCode: (p, c, del) =>
         requests.postRequest("/register/verify", {
           PhoneNumber: encrypt(p, k),
           code: c,
+          delete: del,
         }),
       phoneUsed: (p) =>
         requests.postRequest("/register/verify/phone", {

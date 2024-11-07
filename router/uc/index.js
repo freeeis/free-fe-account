@@ -32,4 +32,9 @@ export default (app) => [
     component: () => import('../../view/uc/info.vue'),
     props: data.info(app),
   },
+  {
+    path: 'noty',
+    name: 'notifications',
+    component: () => import('../view/notifications.vue'),
+  },
 ];
