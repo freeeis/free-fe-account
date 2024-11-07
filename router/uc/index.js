@@ -35,6 +35,6 @@ export default (app) => [
   {
     path: 'noty',
     name: 'notifications',
-    component: () => import('../view/notifications.vue'),
+    component: () => import('../../view/uc/notifications.vue'),
   },
 ];
