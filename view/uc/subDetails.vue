@@ -55,7 +55,7 @@
           </span>
         </div>
 
-        <div class="flow-step-input-fields">
+        <div class="flow-step-free-fields">
           <free-field
             v-for="(field, fIndex) in step.Fields || []"
             :key="fIndex"

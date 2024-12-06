@@ -87,7 +87,7 @@
           </q-timeline>
         </div>
 
-        <div class="flow-step-input-fields">
+        <div class="flow-step-free-fields">
           <free-field
             v-for="(field, fIndex) in step.Fields || []"
             :key="fIndex"
@@ -101,11 +101,11 @@
 
       <template v-slot:message>
         <q-banner v-if="stepMessage" :class="`flow-step-message`">
-          <span class="input-field-warning no-wrap">
-            <span class="input-field-warning-icon"></span>
-            <span class="input-field-warning-icon-sign-top"></span>
-            <span class="input-field-warning-icon-sign-dot"></span>
-            <span class="input-field-warning-text ellipsis">{{stepMessage}}</span>
+          <span class="free-field-warning no-wrap">
+            <span class="free-field-warning-icon"></span>
+            <span class="free-field-warning-icon-sign-top"></span>
+            <span class="free-field-warning-icon-sign-dot"></span>
+            <span class="free-field-warning-text ellipsis">{{stepMessage}}</span>
           </span>
         </q-banner>
       </template>
