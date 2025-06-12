@@ -89,7 +89,7 @@ export default {
               } else {
                 // bus.$MsgDialog(newAccount.msg);
               }
-            }).catch((ex) => {
+            }).catch(() => {
               // bus.$MsgDialog(ex);
             }),
           });

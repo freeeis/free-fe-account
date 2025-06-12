@@ -255,7 +255,7 @@ export default {
 
       data.Labels = data.Labels || [];
 
-      // const AuditStatus = app.modules.passport.AccountAuditStatus;
+      // const AuditStatus = app.modules.account.AccountAuditStatus;
       // switch (data.Status) {
       //   case AuditStatus.Passed:
       //   case AuditStatus.Failed:

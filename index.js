@@ -249,7 +249,7 @@ export default (app) => {
         l: "function1",
         d: "",
         p: ["第一个参数说明", "第二个参数说明"],
-        f: (u, p) =>
+        f: (u, p, opts) =>
           requests.postRequest("/login", {
             ...opts,
             username: encrypt(u, k),

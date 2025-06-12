@@ -1,14 +1,3 @@
-/* eslint-disable prefer-destructuring */
-/* eslint-disable camelcase */
-/* eslint-disable no-undef */
-/* eslint-disable max-len */
-/* eslint-disable no-mixed-operators */
-/* eslint-disable no-array-constructor */
-/* eslint-disable no-sequences */
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-bitwise */
-
 /*
 * chang the string into the bit array
 *
