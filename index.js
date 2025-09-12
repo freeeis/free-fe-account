@@ -158,6 +158,12 @@ export default (app) => {
               Name: "Labels",
               Index: 5,
             },
+            {
+              Type: 'Password',
+              Label: 'AppKey',
+              Name: 'Secret',
+              ReadOnly: true,
+            },
           ],
         },
       ],
