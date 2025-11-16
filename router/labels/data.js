@@ -33,6 +33,5 @@ export default {
     addLabel: (d) => createLabel(d),
     editLabel: (d) => updateLabel(d),
     deleteLabel: (d) => deleteLabel(d),
-    // Bus: bus,
   }),
 };

@@ -40,6 +40,5 @@ export default {
     addPerm: (d) => createPerm(d),
     editPerm: (d) => updatePerm(d),
     deletePerm: (d) => deletePerm(d),
-    // Bus: bus,
   }),
 };

@@ -87,10 +87,10 @@ export default {
                   path: `${route.fullPath}/${account.id}`,
                 };
               } else {
-                // bus.$MsgDialog(newAccount.msg);
+                app.config.globalProperties.$MsgDialog(newAccount.msg);
               }
-            }).catch(() => {
-              // bus.$MsgDialog(ex);
+            }).catch((ex) => {
+              app.config.globalProperties.$MsgDialog(ex);
             }),
           });
         }
@@ -98,7 +98,6 @@ export default {
 
       return d;
     }),
-    // Bus: bus,
   }),
   details: (route) => ({
     GetData: () => getOneAccount(route.params.id).then((d) => {
@@ -112,6 +111,5 @@ export default {
       return data;
     }),
     actionBtnVisible: () => true,
-    // Bus: bus,
   }),
 };
