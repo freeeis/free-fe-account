@@ -75,7 +75,7 @@ export default defineComponent({
             const data = (d && d.data) || {};
             this.ctx.modules.account.store().SET_USER(data);
 
-            this.router.replace(this.route.query.redirect || '/');
+            this.router.replace(this.route.query.redirect ? `${this.route.query.redirect.substring(import.meta.env.BASE_URL.length || 0)}` : '/');
           } else {
             this.$q.notify(this.$t('notifyLoginFailed'));
           }
