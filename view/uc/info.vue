@@ -18,14 +18,14 @@
         :done="step.Index > 2 ? (data.Status === '1') : (data.CurrentStep > step.Index)"
         :error="step.Index > 2 ? (data.Status === '-1') : false"
         :class="`flow-step-uc-info flow-step-${step.Status || 'notstarted'}`"
-        :icon="`img:${import.meta.env.BASE_URL}images/admin/灰${step.Index}@2x.png`"
-        :active-icon="`img:${import.meta.env.BASE_URL}images/admin/${data.Status === '-1'
+        :icon="`img:${baseUrl}images/admin/灰${step.Index}@2x.png`"
+        :active-icon="`img:${baseUrl}images/admin/${data.Status === '-1'
           ? '红' : (data.Status === '0' ? '灰' : '绿')}${step.Index}@2x.png`"
         :active-color="`${data.Status === '-1'
           ? 'red' : (data.Status === '0' ? 'grey' : 'green')}`"
-        :error-icon="`img:${import.meta.env.BASE_URL}images/admin/红${step.Index}@2x.png`"
+        :error-icon="`img:${baseUrl}images/admin/红${step.Index}@2x.png`"
         :error-color="ctx.config.flow?.flowStep.errorColor"
-        :done-icon="`img:${import.meta.env.BASE_URL}images/admin/绿${step.Index}@2x.png`"
+        :done-icon="`img:${baseUrl}images/admin/绿${step.Index}@2x.png`"
         :done-color="ctx.config.flow?.flowStep.doneColor"
       >
         <div v-if="step.Actions && step.Actions.length" class="flow-action-buttons">
@@ -151,6 +151,7 @@ export default defineComponent({
     return {
       data,
       refreshData,
+      baseUrl: computed(() => import.meta.env.BASE_URL),
     };
   },
   data() {
