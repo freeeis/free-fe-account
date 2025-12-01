@@ -275,14 +275,14 @@ export default (app) => {
           ...opts,
           PhoneNumber: encrypt(p, k),
           code: c,
-          Password: pwd,
+          Password: encrypt(pwd, k),
         }),
       recover: (p, c, pwd, opts) =>
         requests.postRequest("/recover", {
           ...opts,
           PhoneNumber: encrypt(p, k),
           code: c,
-          Password: pwd,
+          Password: encrypt(pwd, k),
         }),
       sendCode: (p, t, e) =>
         requests.postRequest("/register/sms", { PhoneNumber: encrypt(p, k), smsTemp: t, exists: e }),
