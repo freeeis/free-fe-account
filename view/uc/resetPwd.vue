@@ -185,7 +185,7 @@ export default defineComponent({
             this.changePwd({
               phone: pPort.utils.encryptPwd(that.phone),
               code: that.code,
-              Password: that.pwd,
+              Password: pPort.utils.encryptPwd(that.pwd),
             })
               .then((d) => {
                 if (d && d.msg === 'OK') {

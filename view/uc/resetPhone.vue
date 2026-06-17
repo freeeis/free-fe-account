@@ -244,7 +244,7 @@ export default defineComponent({
               ocode: that.code,
               phone: pPort.utils.encryptPwd(that.nphone),
               code: that.ncode,
-              Password: that.pwd,
+              Password: pPort.utils.encryptPwd(that.pwd),
             })
               .then((d) => {
                 if (d && d.msg === 'OK') {
