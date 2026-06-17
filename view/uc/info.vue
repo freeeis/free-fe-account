@@ -121,7 +121,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
 import { useFormValidator } from 'free-fe-core-modules/composible/useFormValidator';
 
