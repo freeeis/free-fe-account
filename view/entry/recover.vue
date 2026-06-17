@@ -113,7 +113,7 @@ export default defineComponent({
           }
 
           that
-            .getModule('passport')
+            .getModule('account')
             .utils.sendCode(that.info.phone)
             .then((d) => {
               if (d && d.msg === 'OK') {
@@ -136,12 +136,12 @@ export default defineComponent({
           that.loading = true;
 
           that
-            .getModule('passport')
+            .getModule('account')
             .utils.verifyCode(that.info.phone, that.info.code)
             .then((d) => {
               if (d && d.msg === 'OK') {
                 that
-                  .getModule('passport')
+                  .getModule('account')
                   .utils.recover(this.info.phone, this.info.code, this.info.pwd)
                   .then((d) => {
                     if (d && d.msg === 'OK') {
@@ -177,7 +177,7 @@ export default defineComponent({
         || !/^(0|86|17951)?(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])[0-9]{8}$/.test(p)
       ) return false;
 
-      return this.getModule('passport')
+      return this.getModule('account')
         .utils.phoneUsed(p)
         .then((d) => {
           if (d && d.msg === 'OK') {

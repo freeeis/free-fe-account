@@ -123,12 +123,12 @@ export default defineComponent({
           that.loading = true;
 
           that
-            .getModule('passport')
+            .getModule('account')
             .utils.verifyCode(that.phone, that.code)
             .then((d) => {
               if (d && d.msg === 'OK') {
                 that
-                  .getModule('passport')
+                  .getModule('account')
                   .utils.register(this.phone, this.code, this.pwd)
                   .then((d) => {
                     if (d && d.msg === 'OK') {
@@ -161,7 +161,7 @@ export default defineComponent({
     phoneChanged(p) {
       if (!p || !/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/.test(p)) return false;
 
-      const passport = this.getModule('passport');
+      const passport = this.getModule('account');
       if (passport) {
         return passport.utils
           .phoneUsed(p)

@@ -179,7 +179,7 @@ export default defineComponent({
       currentStep: 1,
       changedFields: [],
       SubmitterCount: 1,
-      // StepsDefinition: this.getModule('uc').config.infoStepsDefinition,
+      // StepsDefinition: this.getModule('account').config.infoStepsDefinition,
       Actions: {
         save: (a, that) => {
           if (!that.changedFields.length) return true;

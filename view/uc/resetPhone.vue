@@ -187,7 +187,7 @@ export default defineComponent({
             return;
           }
 
-          that.getModule('passport')
+          that.getModule('account')
             .utils.verifyCode(that[pName], that[cName])
             .then((d) => {
               if (d && d.msg === 'OK') {
@@ -212,7 +212,7 @@ export default defineComponent({
             return;
           }
 
-          that.getModule('passport')
+          that.getModule('account')
             .utils.sendCode(that[pName])
             .then((d) => {
               if (d && d.msg === 'OK') {
@@ -237,7 +237,7 @@ export default defineComponent({
 
           if (!that.validate('pwd', 'pwdConfirm')) return;
 
-          const pPort = that.getModule('passport');
+          const pPort = that.getModule('account');
           if (pPort) {
             this.changePhone({
               ophone: pPort.utils.encryptPwd(that.phone),
