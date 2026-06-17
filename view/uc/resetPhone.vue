@@ -188,7 +188,7 @@ export default defineComponent({
           }
 
           that.getModule('account')
-            .utils.verifyCode(that[pName], that[cName])
+            .utils.verifyCode(that[pName], that[cName], false)
             .then((d) => {
               if (d && d.msg === 'OK') {
                 that.$q.notify(that.$t('notifyCodeVerified'));

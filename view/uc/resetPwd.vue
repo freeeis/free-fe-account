@@ -147,7 +147,7 @@ export default defineComponent({
           if (!that.validate('phone', 'code')) return;
 
           that.getModule('account').utils
-            .verifyCode(that.phone, that.code)
+            .verifyCode(that.phone, that.code, false)
             .then((d) => {
               if (d && d.msg === 'OK') {
                 that.$q.notify(that.$t('notifyCodeVerified'));
