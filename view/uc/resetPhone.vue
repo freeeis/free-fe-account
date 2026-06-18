@@ -1,5 +1,5 @@
 <template>
-  <div class="relative-position">
+  <div class="relative-position free-fe-account-uc-reset-phone-page">
     <q-stepper
       class="step-left flow-step"
       v-if="StepsDefinition && StepsDefinition.length"

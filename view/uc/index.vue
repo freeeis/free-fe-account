@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md">
+  <div class="q-pa-md free-fe-account-uc-index-page">
     <q-btn @click="onBtnClick">dialog</q-btn>
     <div
       style="font-family: HelveticaInseratCyr-Upright, HelveticaInseratCyr;">

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative-position">
+  <div class="relative-position free-fe-account-uc-info-page">
     <q-stepper
       :class="`step-left flow-step ${showHead ? '' : 'hide-head'}`"
       v-if="data && data.StepsDefinition && data.StepsDefinition.length"

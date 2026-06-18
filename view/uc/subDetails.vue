@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="free-fe-account-uc-sub-details-page">
     <q-stepper
       class="step-left flow-step uc-sub-account-details-wrapper"
       v-if="StepsDefinition && StepsDefinition.length"
