@@ -50,7 +50,7 @@
           </span>
         </div>
 
-        <div v-if="currentStep === 1">
+        <div v-if="currentStep === 1" class="free-fe-account-uc-reset-phone-step1">
           <q-input
             v-model="phone"
             placeholder="请输入手机号"
@@ -72,7 +72,7 @@
           ></q-input>
         </div>
 
-        <div v-if="currentStep === 2">
+        <div v-if="currentStep === 2" class="free-fe-account-uc-reset-phone-step2">
           <q-input
             v-model="nphone"
             placeholder="请输入手机号"
@@ -94,7 +94,7 @@
           ></q-input>
         </div>
 
-        <div v-if="currentStep === 3">
+        <div v-if="currentStep === 3" class="free-fe-account-uc-reset-phone-step3">
           <q-input
             v-model="pwd"
             placeholder="请设置登录密码"

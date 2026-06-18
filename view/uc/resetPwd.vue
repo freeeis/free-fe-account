@@ -50,7 +50,7 @@
           </span>
         </div>
 
-        <div v-if="currentStep === 1">
+        <div v-if="currentStep === 1" class="free-fe-account-uc-reset-pwd-step1">
           <q-input
             v-model="phone"
             :placeholder="$t('请输入手机号')"
@@ -71,7 +71,7 @@
             :rules="[val => !!val || $t('请输入验证码')]"
           ></q-input>
         </div>
-        <div v-if="currentStep === 2">
+        <div v-if="currentStep === 2" class="free-fe-account-uc-reset-pwd-step2">
           <q-input
             v-model="pwd"
             :placeholder="$t('请设置登录密码')"
