@@ -75,9 +75,9 @@
         <div v-if="currentStep === 2" class="free-fe-account-uc-reset-phone-step2">
           <q-input
             v-model="nphone"
-            placeholder="请输入手机号"
+            placeholder="请输入新手机号"
             ref="nphone"
-            :rules="[val => !!val || '请输入手机号']"
+            :rules="[val => !!val || '请输入新手机号']"
           >
             <template v-slot:append>
               <q-btn
@@ -88,9 +88,9 @@
           </q-input>
           <q-input
             v-model="ncode"
-            placeholder="请输入验证码"
+            placeholder="请输入新手机号验证码"
             ref="ncode"
-            :rules="[val => !!val || '请输入验证码']"
+            :rules="[val => !!val || '请输入新手机号验证码']"
           ></q-input>
         </div>
 
