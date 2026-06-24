@@ -270,8 +270,12 @@ export default defineComponent({
     },
     fieldChanged(field) {
       if (!field || !field.Name) return;
-      if (this.changedFields.indexOf(field.Name) < 0) {
-        this.changedFields.push(field.Name.split('.')[0]);
+      const normalizedFieldName = field.Name.startsWith('Scope.')
+        ? 'Permission'
+        : field.Name.split('.')[0];
+
+      if (this.changedFields.indexOf(normalizedFieldName) < 0) {
+        this.changedFields.push(normalizedFieldName);
       }
     },
   },
