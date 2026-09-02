@@ -9,6 +9,7 @@
 import { ref } from 'vue';
 import { requests } from '@/boot/axios';
 import { getAccount, getOneAccount, createAccount } from './api';
+import { appendRouteSegment } from '../path';
 
 import { i18n } from '@/boot/i18n';
 const {global:{t}} = i18n;
@@ -84,7 +85,7 @@ export default {
               if (newAccount && newAccount.msg === 'OK') {
                 const account = (newAccount && newAccount.data) ? newAccount.data : {};
                 item.route = {
-                  path: `${route.fullPath}/${account.id}`,
+                  path: appendRouteSegment(route.path, account.id),
                 };
               } else {
                 app.config.globalProperties.$MsgDialog(newAccount.msg);

@@ -18,7 +18,7 @@
 
       <template v-slot:body="props">
         <q-tr class="table-row cursor-pointer"
-          @click="$router.push({path: `${$route.fullPath}/${props.row.id}`})">
+          @click="$router.push({path: appendRouteSegment($route.path, props.row.id)})">
           <q-td
             v-for="col in props.cols"
             :key="col.name"
@@ -102,6 +102,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
+import { appendRouteSegment } from '../../router/path';
 
 export default defineComponent({
   name: 'AccountList',
@@ -118,6 +119,7 @@ export default defineComponent({
     return {
       data, 
       refreshData,
+      appendRouteSegment,
     };
   },
   data() {

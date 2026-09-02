@@ -54,7 +54,7 @@
       <template v-slot:body="props">
         <q-tr
           class="table-row"
-          @click="$router.push({path: `${$route.fullPath}/${props.row.id}`})"
+          @click="$router.push({path: appendRouteSegment($route.path, props.row.id)})"
         >
           <q-td
             v-for="col in props.cols"
@@ -128,6 +128,7 @@
 import { defineComponent } from 'vue';
 import { useRouter, useRoute } from 'vue-router'
 import { useObjectData, objectDataProps } from 'free-fe-core-modules/composible/useObjectData';
+import { appendRouteSegment } from '../../router/path';
 
 export default defineComponent({
   name: 'SubAccountList',
@@ -150,6 +151,7 @@ export default defineComponent({
       refreshData,
       router,
       route: useRoute(),
+      appendRouteSegment,
     };
   },
   data() {
@@ -235,7 +237,7 @@ export default defineComponent({
     },
     rowClicked(e, r) {
       this.router.push({
-        path: `${this.route.fullPath}/${r.id}`,
+        path: appendRouteSegment(this.route.path, r.id),
       });
     },
     paginationChanged(p) {

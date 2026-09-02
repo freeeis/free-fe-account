@@ -77,6 +77,7 @@ import {
   updateSubAccount,
   deleteSubAccount,
 } from '../../router/uc/api';
+import { appendRouteSegment } from '../../router/path';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -108,10 +109,10 @@ export default defineComponent({
             return createSubAccount(that.data).then((r) => {
               if (r && r.msg === 'OK') {
                 that.$router.replace({
-                  path: `${that.$route.fullPath.substr(
-                    0,
-                    that.$route.fullPath.length - '/new'.length,
-                  )}/${r.data.id}`,
+                  path: appendRouteSegment(
+                    that.$route.path.replace(/\/new\/?$/, ''),
+                    r.data.id,
+                  ),
                 });
                 that.changedFields = [];
               } else {
@@ -165,10 +166,7 @@ export default defineComponent({
           return deleteSubAccount(that.data.id).then((r) => {
             if (r && r.msg === 'OK') {
               that.$router.replace({
-                path: `${that.$route.fullPath.substr(
-                  0,
-                  that.$route.fullPath.lastIndexOf('/'),
-                )}`,
+                path: that.$route.path.substring(0, that.$route.path.lastIndexOf('/')),
               });
             } else {
               that.$q.notify(that.$t('notifyDeleteFailed'));

@@ -1,6 +1,7 @@
 import {
   getSubAccounts, getSubAccount, getMyInfo, changePwd, changePhone,
 } from './api';
+import { appendRouteSegment } from '../path';
 
 import useAccountStore from '../../stores/module-account';
 
@@ -119,7 +120,7 @@ export default {
       data.summary.push({
         text: t('添加'),
         button: true,
-        route: `${route.fullPath}/new`,
+        route: appendRouteSegment(route.path, 'new'),
       });
 
       return data;
